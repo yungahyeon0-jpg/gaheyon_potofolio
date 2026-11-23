@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!--
+  ===== 새 프로젝트 상세 페이지 템플릿 =====
+  1. 이 파일을 복사해 새 이름으로 저장 (예: newproject-detail.html)
+  2. [ ] 로 표시된 부분을 내 프로젝트 내용으로 바꾸기
+  3. 필요 없는 섹션은 <section> 통째로 지우고, 위쪽 탭(detail-tabs)의 같은 항목도 지우기
+  4. index.html 포트폴리오 카드의 "상세 페이지" 링크를 새 파일 이름으로 연결
+-->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[프로젝트 이름] | Portfolio YGH</title>
+  <meta name="description" content="윤가현 포트폴리오 — [프로젝트 설명]">
+  <meta name="robots" content="noindex, nofollow">
+  <link href="assets/img/icon/Yoon1.png" rel="icon">
+  <link href="assets/img/icon/Yoon1.png" rel="apple-touch-icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS Files -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/portfolio-refresh.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <link href="assets/css/studio-layout.css" rel="stylesheet">
+</head>
+
+<body class="detail-page">
+
+  <header id="header" class="header studio-header">
+    <div class="studio-header-inner">
+      <a class="studio-wordmark" href="index.html#hero" aria-label="Yoon Gahyeon home">YGH<span>.</span></a>
+      <nav id="navmenu" class="navmenu" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#skills">Archive</a></li>
+          <li><a href="index.html#portfolio" class="active">Projects</a></li>
+          <li><a href="index.html#resume">About</a></li>
+        </ul>
+      </nav>
+      <p class="studio-side-foot">Design · Film · Art</p>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Detail Hero: 왼쪽 큰 이미지 + 오른쪽 프로젝트 정보 -->
+    <section class="detail-hero">
+      <div class="detail-hero-media">
+        <img src="assets/img/portfolio/portfolio-1.webp" alt="[대표 이미지 설명]">
+      </div>
+      <div class="detail-hero-info" data-aos="fade-left">
+        <p class="detail-index">[05] / [Category]</p>
+        <h1>[Project Title]</h1>
+        <p class="detail-tagline">[영문 한 줄 소개]</p>
+        <p class="detail-quote">"[한글 슬로건]"<br>[프로젝트 한 줄 설명]</p>
+        <dl class="detail-meta">
+          <div><dt>Project Type</dt><dd>[Brand Identity]</dd></div>
+          <div><dt>Role</dt><dd>[Planning / Design]</dd></div>
+          <div><dt>Year</dt><dd>[2026]</dd></div>
+          <div class="wide"><dt>Tools</dt><dd>[Illustrator · Photoshop]</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Tabs: 각 항목의 href 는 아래 section 의 id 와 같아야 합니다 -->
+    <nav class="detail-tabs" aria-label="프로젝트 내용">
+      <ul>
+        <li><a href="#overview" class="active">Overview</a></li>
+        <li><a href="#concept">Concept</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#detail">Detail Page</a></li>
+      </ul>
+    </nav>
+
+    <div class="detail-body">
+
+      <!-- 글 + 이미지 (좌우 배치) -->
+      <section id="overview" class="detail-block">
+        <div class="detail-split">
+          <div>
+            <p class="detail-label">Overview</p>
+            <h2>Project Overview</h2>
+            <p>[프로젝트 개요를 작성하세요.]</p>
+          </div>
+          <div class="detail-media"><img src="assets/img/portfolio/portfolio-2.webp" alt="[이미지 설명]"></div>
+        </div>
+      </section>
+
+      <section id="concept" class="detail-block">
+        <div class="detail-split">
+          <div>
+            <p class="detail-label">Concept</p>
+            <h2>[Brand Concept]</h2>
+            <p>[콘셉트 설명을 작성하세요.]</p>
+          </div>
+          <div class="detail-media"><img src="assets/img/portfolio/portfolio-3.webp" alt="[이미지 설명]"></div>
+        </div>
+      </section>
+
+      <!-- 이미지 갤러리 (클릭하면 크게 보기). 2열은 class="detail-gallery cols-2" -->
+      <section id="gallery" class="detail-block">
+        <div class="detail-head">
+          <p class="detail-label">Gallery</p>
+          <h2>[Gallery Title]</h2>
+        </div>
+        <div class="detail-gallery">
+          <a href="assets/img/portfolio/portfolio-4.webp" class="glightbox" data-gallery="gallery"><img src="assets/img/portfolio/portfolio-4.webp" alt="" loading="lazy"></a>
+          <a href="assets/img/portfolio/portfolio-5.webp" class="glightbox" data-gallery="gallery"><img src="assets/img/portfolio/portfolio-5.webp" alt="" loading="lazy"></a>
+          <a href="assets/img/portfolio/portfolio-6.webp" class="glightbox" data-gallery="gallery"><img src="assets/img/portfolio/portfolio-6.webp" alt="" loading="lazy"></a>
+        </div>
+      </section>
+
+      <!-- 영상 -->
+      <section id="video" class="detail-block">
+        <div class="detail-head">
+          <p class="detail-label">Video</p>
+          <h2>[Video Title]</h2>
+        </div>
+        <div class="detail-media">
+          <video controls autoplay muted loop playsinline preload="metadata">
+            <source src="[영상 파일 경로.mp4]" type="video/mp4">
+          </video>
+        </div>
+      </section>
+
+      <!-- 긴 상세페이지 이미지 -->
+      <section id="detail" class="detail-block">
+        <div class="detail-head">
+          <p class="detail-label">Detail Page</p>
+          <h2>상세페이지</h2>
+        </div>
+        <div class="detail-long"><img src="assets/img/portfolio/portfolio-7.webp" alt="[상세페이지]" loading="lazy"></div>
+      </section>
+
+    </div>
+
+    <!-- Prev / Next -->
+    <nav class="detail-next" aria-label="다른 프로젝트">
+      <a href="RedSweetPea-detail.html"><span>← Previous</span><strong>[이전 프로젝트]</strong></a>
+      <a href="WitchsLab-details.html"><span>Next →</span><strong>[다음 프로젝트]</strong></a>
+    </nav>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Yoongh</strong> <span>All Rights Reserved</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS Files -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/detail.js"></script>
+
+</body>
+
+</html>
