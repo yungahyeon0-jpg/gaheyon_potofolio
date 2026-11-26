@@ -328,10 +328,24 @@ h1,h2,h3,h4,h5,h6{font-family:var(--serif)!important}
 .detail-series figcaption span{display:block;font-family:var(--serif);font-style:italic;font-size:18px;margin-bottom:2px}
 @media(max-width:575px){.detail-series{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.detail-series figcaption{font-size:12px}}
 
+/* Detail: 배경 음악 on/off 버튼 (오른쪽 아래, scroll-top 버튼 위) */
+.bgm-toggle{position:fixed;right:15px;bottom:72px;z-index:99996;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(247,244,237,.94);color:var(--ink);font-size:10px;font-weight:700;letter-spacing:.14em;box-shadow:0 6px 18px rgba(44,44,44,.12);backdrop-filter:blur(6px);transition:background .2s,color .2s}
+.bgm-toggle:hover{background:var(--ink);color:var(--paper)}
+.bgm-bars{display:inline-flex;align-items:flex-end;gap:2px;height:12px}
+.bgm-bars i{display:block;width:2px;height:3px;background:currentColor;border-radius:1px}
+.bgm-toggle.is-on .bgm-bars i{animation:bgmBar 1s ease-in-out infinite}
+.bgm-toggle.is-on .bgm-bars i:nth-child(2){animation-delay:.2s}
+.bgm-toggle.is-on .bgm-bars i:nth-child(3){animation-delay:.4s}
+@keyframes bgmBar{0%,100%{height:3px}50%{height:12px}}
+@media(prefers-reduced-motion:reduce){.bgm-toggle.is-on .bgm-bars i{animation:none;height:8px}}
+
 /* Lightbox: 확대 이미지·영상은 화면의 70%까지만 */
 .glightbox-container .gslide-image img{max-width:70vw!important;max-height:70vh!important;width:auto!important;height:auto!important;object-fit:contain}
-.glightbox-container .gslide-video,.glightbox-container .gslide-external{max-width:min(70vw,calc(70vh * 16 / 9))!important;width:100%!important}
-.glightbox-container .gslide-video video{max-height:70vh!important}
+/* Lightbox video: large, centered, video fills the player (no left-shift / shrink) */
+.glightbox-container .gslide-video,.glightbox-container .gslide-external{max-width:min(88vw,calc(80vh * 16 / 9))!important;width:100%!important;margin:0 auto!important}
+.glightbox-container .gslide-video .plyr,.glightbox-container .gslide-video .plyr__video-wrapper{width:100%!important;max-width:100%!important}
+.glightbox-container .gslide-video .plyr__video-wrapper{display:flex!important;align-items:center;justify-content:center;background:#000}
+.glightbox-container .gslide-video video{width:100%!important;height:100%!important;max-width:none!important;max-height:80vh!important;object-fit:contain;margin:0 auto;display:block}
 
 /* All Projects: filter buttons hidden; category chosen in "Explore by Category" shows as a subtitle */
 .portfolio .filter-sidebar{display:none!important}
@@ -406,9 +420,9 @@ h1,h2,h3,h4,h5,h6{font-family:var(--serif)!important}
 .portfolio .portfolio-wrap .portfolio-info{background:rgba(20,20,20,.28)!important;transform:none!important;transition:opacity .3s ease!important}
 .portfolio .portfolio-wrap .portfolio-info .content{transform:none!important;padding:0 0 18px 18px!important}
 .portfolio .portfolio-wrap .portfolio-info .category,.portfolio .portfolio-wrap .portfolio-info h4{display:none!important}
-/* 이미지 아래 캡션: 제목(왼쪽) · 카테고리(오른쪽) */
-.portfolio-meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 2px 0;border-top:0}
-.portfolio-meta h4{margin:0!important;font-family:var(--serif)!important;font-weight:500!important;font-size:18px!important;color:var(--ink)!important;letter-spacing:-.01em}
+/* 이미지 아래 캡션: 카테고리(왼쪽) · 제목(오른쪽) */
+.portfolio-meta{display:flex;flex-direction:row-reverse;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 2px 0;border-top:0}
+.portfolio-meta h4{margin:0!important;text-align:right;word-break:keep-all;font-family:var(--serif)!important;font-weight:500!important;font-size:18px!important;color:var(--ink)!important;letter-spacing:-.01em}
 .portfolio-meta span{flex-shrink:0;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 
 /* ---------- 메인 페이지: 모든 섹션을 같은 최대 폭(1440px) 안에 정렬, 작은 화면에선 양끝까지 ---------- */
@@ -581,3 +595,48 @@ h1,h2,h3,h4,h5,h6{font-family:var(--serif)!important}
 .detail-gallery .span-2{grid-column:span 2;aspect-ratio:auto!important;align-self:stretch;position:relative;min-height:120px}
 .detail-gallery .span-2 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 @media(max-width:575px){.detail-gallery .span-2{grid-column:auto;aspect-ratio:16/9!important}}
+
+/* highlighted note inside a detail text block */
+.detail-note{margin-top:22px!important;padding:16px 18px;border-left:2px solid var(--clay);background:rgba(228,221,209,.45);border-radius:0 4px 4px 0;font-size:13.5px!important}
+.detail-note strong{display:block;font-family:var(--serif);font-weight:500;font-size:16px;color:var(--ink);margin-bottom:4px}
+
+/* Home collage: no zoom, keep the right side of the photo (face) visible */
+.studio-collage .tile-right img{object-position:100% center;transform-origin:100% 70%;transform:none}
+.studio-collage .tile-right:hover img{transform:scale(1.08)}
+
+/* All Projects: 직접 촬영한 작업 표시 (위쪽 검은 바 아래에 배치) */
+.portfolio .shot-badge{position:absolute;z-index:4;left:14px;top:calc(6.43% + 12px);display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;background:rgba(247,244,237,.94);color:var(--ink)!important;font-size:11px;font-weight:700;letter-spacing:.02em;line-height:1.3;pointer-events:none}
+.portfolio .shot-badge i{font-size:12px;color:#C0392B}
+
+/* 캐릭터 카드: 컬러 팔레트를 카드 맨 아래 같은 선에 맞춤 */
+.detail-char{display:flex;flex-direction:column}
+.detail-char>.detail-swatches{margin-top:auto}
+
+/* 캐릭터 프로필 2장: 두 카드가 같은 행 높이를 공유(subgrid)해 구분선·설명·팔레트가 항상 같은 선에 위치 */
+@media(min-width:576px){
+  .detail-chars:not(.cols-3){grid-template-columns:repeat(2,minmax(0,1fr));row-gap:0}
+  .detail-chars:not(.cols-3)>.detail-char{display:grid;grid-row:span 7;grid-template-rows:subgrid;grid-template-columns:minmax(0,1fr);row-gap:0}
+  .detail-chars:not(.cols-3)>.detail-char>.detail-profile{grid-row:span 3;grid-template-rows:subgrid;row-gap:0}
+  .detail-chars:not(.cols-3)>.detail-char>.detail-swatches{margin-top:0;align-self:start}
+  .detail-chars:not(.cols-3) .detail-profile dd,.detail-chars:not(.cols-3)>.detail-char>p{word-break:keep-all}
+}
+@media(min-width:576px) and (max-width:767px){
+  .detail-chars:not(.cols-3){column-gap:16px}
+  .detail-chars:not(.cols-3)>.detail-char{padding:20px}
+  .detail-chars:not(.cols-3) .detail-profile>div{padding-right:8px}
+}
+@media(min-width:576px) and (max-width:1199px){
+  .detail-chars:not(.cols-3) .detail-swatches.sm{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px 4px}
+  .detail-chars:not(.cols-3) .detail-swatches.sm span{font-size:8.5px;letter-spacing:0}
+}
+@media(min-width:576px) and (max-width:767px){
+  .detail-chars:not(.cols-3) .detail-swatches.sm{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+/* All Projects: 영상 작업물 호버 시 가운데 재생 버튼 */
+.portfolio .play-btn{position:absolute;z-index:5;left:50%;top:50%;width:68px;height:68px;padding:0;border:2px solid rgba(255,255,255,.95);border-radius:50%;background:rgba(0,0,0,.45);color:#fff;font-size:36px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transform:translate(-50%,-50%) scale(.85);transition:opacity .25s ease,transform .25s ease,background .2s,color .2s}
+.portfolio .play-btn i{margin-left:4px;line-height:1}
+.portfolio .portfolio-wrap:hover .play-btn,.portfolio .play-btn:focus-visible{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.portfolio .play-btn:hover{background:#fff;color:#111}
+/* 호버가 없는 터치 화면에서는 항상 표시 */
+@media(hover:none){.portfolio .play-btn{opacity:.9;transform:translate(-50%,-50%) scale(.85)}}
